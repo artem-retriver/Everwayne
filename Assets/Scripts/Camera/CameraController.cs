@@ -29,6 +29,7 @@ public class CameraController : MonoBehaviour
 
         sequence.AppendInterval(5);
 
-        sequence.AppendCallback(() => { _cardPoolController.InstantiateCard(); });
+        sequence.AppendCallback(() => { _cardPoolController.gameObject.SetActive(true); });
+        sequence.AppendCallback(() => { _cardPoolController.CheckForInstantiate(); });
     }
 }

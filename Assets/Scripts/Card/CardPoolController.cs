@@ -1,23 +1,56 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class CardPoolController : MonoBehaviour
 {
+    [SerializeField] private DiscardController _discardController;
     [SerializeField] private SetcardController _setcardController;
     [SerializeField] private CardController[] _cardControllers;
     [SerializeField] private GameObject[] _positionRotationCards;
 
     public List<CardController> _listNewCard;
     private Sequence _sequence, _sequence1;
+    private Button _endTurnButton;
     
     private int countCurrentCardInPool, increaseOrderLayer = 5;
 
-    public void InstantiateCard()
+    private void Start()
+    {
+        _endTurnButton = GetComponentInChildren<Button>();
+    }
+
+    public void CheckForInstantiate()
+    {
+        if (countCurrentCardInPool == 0)
+        {
+            InstantiateCard();
+        }
+    }
+
+    public void DecreaseCountCurrentCardInPool()
+    {
+        countCurrentCardInPool--;
+        //CheckForInstantiate();
+    }
+
+    public void EndMoveAllCard()
+    {
+        foreach (var t in _listNewCard)
+        {
+            t.EndMoveRound();
+        }
+    }
+    
+    private void InstantiateCard()
     {
         _sequence = DOTween.Sequence();
 
+        _sequence.AppendCallback(CheckForChangeDeck);
         _sequence.AppendCallback(InstantiateNewCard);
         _sequence.AppendCallback(ChangeOrderLayerNewCard);
         _sequence.AppendCallback(MoveNewCard);
@@ -32,35 +65,45 @@ public class CardPoolController : MonoBehaviour
         _sequence.SetLoops(-1);
     }
 
+    private void CheckForChangeDeck()
+    {
+        if (_setcardController.CountCurrentScore == 0)
+        {
+            _setcardController.ActivateChangeFVX();
+            _discardController.ActivateChangeFVX();
+        }
+    }
+
     private void CheckForStopInstantiateNewCard()
     {
-        if (countCurrentCardInPool == 4)
+        countCurrentCardInPool++;
+        increaseOrderLayer += 10;
+        
+        if (countCurrentCardInPool == 5)
         {
             _sequence.Kill();
 
             _sequence1 = DOTween.Sequence();
             
             _sequence1.AppendInterval(0.5f);
+
+            _sequence1.AppendCallback(() => { _endTurnButton.interactable = true; });
             
             _sequence1.AppendCallback(() =>
             {
                 foreach (var t in _listNewCard)
                 {
-                    t.CheckCurrentPos();
+                    t.CheckCurrentPosition();
+                    t.CheckCurrentRotation();
                     t.ActivateBoxCollider();
                 }
             });
-        }
-        else
-        {
-            increaseOrderLayer += 10;
-            countCurrentCardInPool++;
         }
     }
 
     private void InstantiateNewCard()
     {
-        int randomCard = Random.Range(0, 3);
+        int randomCard = Random.Range(0, 6);
 
         var newCard = Instantiate(_cardControllers[randomCard],
             _positionRotationCards[countCurrentCardInPool].transform, true);
@@ -102,8 +145,11 @@ public class CardPoolController : MonoBehaviour
 
     private void ChangeOrderLayerNewCard()
     {
-        _listNewCard[^1]._canvasPrice.gameObject.SetActive(true);
-        _listNewCard[^1]._canvasPrice.sortingOrder += increaseOrderLayer;
+        foreach (var t in _listNewCard[^1]._canvasCard)
+        {
+            t.gameObject.SetActive(true);
+            t.sortingOrder += increaseOrderLayer;
+        }
         
         foreach (var t in _listNewCard[^1]._spriteRenderers)
         {
