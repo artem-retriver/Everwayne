@@ -1,16 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
 public class CanvasDestroyController : MonoBehaviour
 {
-    private void Start()
-    {
-        DestroyCanvasIncreaseHp();
-    }
-
-    private void DestroyCanvasIncreaseHp()
+    public void DestroyCanvasIncreaseHp()
     {
         Sequence sequence = DOTween.Sequence();
 

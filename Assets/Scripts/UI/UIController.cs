@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -27,20 +24,15 @@ public class UIController : MonoBehaviour
 
     public void HideGameWin()
     {
-        Sequence sequence = DOTween.Sequence();
-
-        sequence.AppendCallback(() => { _cardPoolController.gameObject.SetActive(false); });
-
-        sequence.AppendInterval(1);
-
-        sequence.AppendCallback(() => { _hideGame.SetActive(true); });
-        
-        sequence.AppendInterval(4);
-
-        sequence.AppendCallback(() => { SceneManager.LoadScene("LevelTwo"); });
+        HideGameBase("LevelTwo");
     }
     
     public void HideGameLose()
+    {
+        HideGameBase("LevelOne");
+    }
+
+    private void HideGameBase(string nameScene)
     {
         Sequence sequence = DOTween.Sequence();
 
@@ -52,6 +44,6 @@ public class UIController : MonoBehaviour
         
         sequence.AppendInterval(4);
 
-        sequence.AppendCallback(() => { SceneManager.LoadScene("LevelOne"); });
+        sequence.AppendCallback(() => { SceneManager.LoadScene(nameScene); });
     }
 }

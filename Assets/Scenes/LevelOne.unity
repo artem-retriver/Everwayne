@@ -470,7 +470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d43e8723b40c2a4a9a566d34ce08c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardPoolController: {fileID: 570359804}
   _cardManaController: {fileID: 1809275479}
   _discardController: {fileID: 8928912997218046756}
   _setcardController: {fileID: 1103162090}
@@ -631,7 +630,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &51533692
 RectTransform:
   m_ObjectHideFlags: 0
@@ -879,7 +878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d43e8723b40c2a4a9a566d34ce08c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardPoolController: {fileID: 570359804}
   _cardManaController: {fileID: 1809275479}
   _discardController: {fileID: 8928912997218046756}
   _setcardController: {fileID: 1103162090}
@@ -977,7 +975,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d43e8723b40c2a4a9a566d34ce08c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardPoolController: {fileID: 570359804}
   _cardManaController: {fileID: 1809275479}
   _discardController: {fileID: 8928912997218046756}
   _setcardController: {fileID: 1103162090}
@@ -3176,15 +3173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fca67ebb619b254e8d2021d532861c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _discardController: {fileID: 8928912997218046756}
-  _setcardController: {fileID: 1103162090}
-  _cardControllers:
-  - {fileID: 8931778586306041072}
-  - {fileID: 39723449}
-  - {fileID: 63392611}
-  - {fileID: 1611612523}
-  - {fileID: 783281575}
-  - {fileID: 72389827}
   _positionRotationCards:
   - {fileID: 999145091}
   - {fileID: 273299646}
@@ -3577,7 +3565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &625370795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4203,7 +4191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &748182057
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4372,7 +4360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d43e8723b40c2a4a9a566d34ce08c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardPoolController: {fileID: 570359804}
   _cardManaController: {fileID: 1809275479}
   _discardController: {fileID: 8928912997218046756}
   _setcardController: {fileID: 1103162090}
@@ -6429,7 +6416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1181475717
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7634,7 +7621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1364210411
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7982,7 +7969,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1410121768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8097,7 +8084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1411468499
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9274,7 +9261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d43e8723b40c2a4a9a566d34ce08c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardPoolController: {fileID: 570359804}
   _cardManaController: {fileID: 1809275479}
   _discardController: {fileID: 8928912997218046756}
   _setcardController: {fileID: 1103162090}
@@ -10651,7 +10637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1859302133
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35128,7 +35114,6 @@ GameObject:
   - component: {fileID: 1725875102188121431}
   - component: {fileID: 1465052771360454248}
   - component: {fileID: 1725875102188121430}
-  - component: {fileID: 1564437855354932926}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Player
@@ -35166,10 +35151,10 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1214789700}
   - {fileID: 51533692}
   - {fileID: 748182057}
   - {fileID: 1410121772}
+  - {fileID: 1214789700}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1526620220501357655
@@ -35308,33 +35293,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!50 &1564437855354932926
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514835377334213296}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0.5
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 6
 --- !u!1 &1569071997164763235
 GameObject:
   m_ObjectHideFlags: 0
@@ -35630,9 +35588,6 @@ MonoBehaviour:
   _uIController: {fileID: 1028409772}
   _playerController: {fileID: 7508717502621169019}
   _cardPoolController: {fileID: 570359804}
-  _canvasDecreaseHp: {fileID: 51533691}
-  _canvasLargeDecreaseHp: {fileID: 748182056}
-  _canvasIncreaseShield: {fileID: 1410121767}
   _hpImage: {fileID: 1169692417}
   _hpText: {fileID: 1179932363}
   _shieldText: {fileID: 1987820243}
@@ -68037,7 +67992,6 @@ GameObject:
   - component: {fileID: 7508717502621169019}
   - component: {fileID: 4047805625409691018}
   - component: {fileID: 3749759385684951698}
-  - component: {fileID: 6984284052739276824}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -77117,33 +77071,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &6984284052739276824
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5419189100487194925}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0.5
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 6
 --- !u!1 &6987614858249803947
 GameObject:
   m_ObjectHideFlags: 0
@@ -78689,11 +78616,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uIController: {fileID: 1028409772}
-  _canvasIncreaseHp: {fileID: 1181475716}
-  _canvasLargeIncreaseHp: {fileID: 1364210410}
-  _canvasDecreaseHp: {fileID: 1411468498}
-  _canvasLargeIncreaseShield: {fileID: 1859302132}
-  _canvasIncreaseShield: {fileID: 625370794}
   _hpImage: {fileID: 1902494000}
   _hpText: {fileID: 410962267}
   _shieldText: {fileID: 739308094}
@@ -91262,7 +91184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d43e8723b40c2a4a9a566d34ce08c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardPoolController: {fileID: 570359804}
   _cardManaController: {fileID: 1809275479}
   _discardController: {fileID: 8928912997218046756}
   _setcardController: {fileID: 1103162090}

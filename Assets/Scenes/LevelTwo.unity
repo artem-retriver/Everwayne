@@ -470,7 +470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d43e8723b40c2a4a9a566d34ce08c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardPoolController: {fileID: 570359804}
   _cardManaController: {fileID: 1809275479}
   _discardController: {fileID: 8928912997218046756}
   _setcardController: {fileID: 1103162090}
@@ -631,7 +630,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &51533692
 RectTransform:
   m_ObjectHideFlags: 0
@@ -879,7 +878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d43e8723b40c2a4a9a566d34ce08c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardPoolController: {fileID: 570359804}
   _cardManaController: {fileID: 1809275479}
   _discardController: {fileID: 8928912997218046756}
   _setcardController: {fileID: 1103162090}
@@ -977,7 +975,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d43e8723b40c2a4a9a566d34ce08c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardPoolController: {fileID: 570359804}
   _cardManaController: {fileID: 1809275479}
   _discardController: {fileID: 8928912997218046756}
   _setcardController: {fileID: 1103162090}
@@ -3176,15 +3173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fca67ebb619b254e8d2021d532861c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _discardController: {fileID: 8928912997218046756}
-  _setcardController: {fileID: 1103162090}
-  _cardControllers:
-  - {fileID: 8931778586306041072}
-  - {fileID: 39723449}
-  - {fileID: 63392611}
-  - {fileID: 1611612523}
-  - {fileID: 783281575}
-  - {fileID: 72389827}
   _positionRotationCards:
   - {fileID: 999145091}
   - {fileID: 273299646}
@@ -3577,7 +3565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &625370795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4203,7 +4191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &748182057
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4372,7 +4360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d43e8723b40c2a4a9a566d34ce08c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardPoolController: {fileID: 570359804}
   _cardManaController: {fileID: 1809275479}
   _discardController: {fileID: 8928912997218046756}
   _setcardController: {fileID: 1103162090}
@@ -6429,7 +6416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1181475717
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7634,7 +7621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1364210411
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7982,7 +7969,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1410121768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8097,7 +8084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1411468499
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9274,7 +9261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d43e8723b40c2a4a9a566d34ce08c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardPoolController: {fileID: 570359804}
   _cardManaController: {fileID: 1809275479}
   _discardController: {fileID: 8928912997218046756}
   _setcardController: {fileID: 1103162090}
@@ -10651,7 +10637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1859302133
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35630,9 +35616,6 @@ MonoBehaviour:
   _uIController: {fileID: 1028409772}
   _playerController: {fileID: 7508717502621169019}
   _cardPoolController: {fileID: 570359804}
-  _canvasDecreaseHp: {fileID: 51533691}
-  _canvasLargeDecreaseHp: {fileID: 748182056}
-  _canvasIncreaseShield: {fileID: 1410121767}
   _hpImage: {fileID: 1169692417}
   _hpText: {fileID: 1179932363}
   _shieldText: {fileID: 1987820243}
@@ -78689,11 +78672,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uIController: {fileID: 1028409772}
-  _canvasIncreaseHp: {fileID: 1181475716}
-  _canvasLargeIncreaseHp: {fileID: 1364210410}
-  _canvasDecreaseHp: {fileID: 1411468498}
-  _canvasLargeIncreaseShield: {fileID: 1859302132}
-  _canvasIncreaseShield: {fileID: 625370794}
   _hpImage: {fileID: 1902494000}
   _hpText: {fileID: 410962267}
   _shieldText: {fileID: 739308094}
@@ -91262,7 +91240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d43e8723b40c2a4a9a566d34ce08c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardPoolController: {fileID: 570359804}
   _cardManaController: {fileID: 1809275479}
   _discardController: {fileID: 8928912997218046756}
   _setcardController: {fileID: 1103162090}

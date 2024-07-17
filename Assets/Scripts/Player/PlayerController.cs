@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -9,15 +5,11 @@ using Random = UnityEngine.Random;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private UIController _uIController;
-    [SerializeField] private GameObject _canvasIncreaseHp;
-    [SerializeField] private GameObject _canvasLargeIncreaseHp;
-    [SerializeField] private GameObject _canvasDecreaseHp;
-    [SerializeField] private GameObject _canvasLargeIncreaseShield;
-    [SerializeField] private GameObject _canvasIncreaseShield;
     [SerializeField] private Image _hpImage;
     [SerializeField] private Text _hpText;
     [SerializeField] private Text _shieldText;
     
+    private CanvasDestroyController[] _canvasObjects;
     private Animator _animator;
 
     private float currentAttack = 25, saveAttack = 25, Shield = 0, Hp = 64, MaxHp = 64;
@@ -25,8 +17,10 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        _canvasObjects = GetComponentsInChildren<CanvasDestroyController>();
         _animator = GetComponent<Animator>();
         
+        OffAllCanvasObjects();
         CheckCurrentHp();
         CheckCurrentShield();
     }
@@ -48,7 +42,7 @@ public class PlayerController : MonoBehaviour
         
         _animator.SetTrigger("Hurt");
         
-        InstantiateCanvasBase(_canvasIncreaseHp);
+        InstantiateCanvasBase(_canvasObjects[0]);
         CheckCurrentHp();
     }
     
@@ -63,7 +57,7 @@ public class PlayerController : MonoBehaviour
         
         _animator.SetTrigger("Hurt");
         
-        InstantiateCanvasBase(_canvasLargeIncreaseHp);
+        InstantiateCanvasBase(_canvasObjects[1]);
         CheckCurrentHp();
     }
     
@@ -90,12 +84,14 @@ public class PlayerController : MonoBehaviour
         if (Hp <= 0)
         {
             Hp = 0;
-            Debug.Log("You Lose");
+            
+            ActivateDeath();
+            _uIController.HideGameLose();
         }
         
         _animator.SetTrigger("Hurt");
         
-        InstantiateCanvasBase(_canvasDecreaseHp);
+        InstantiateCanvasBase(_canvasObjects[2]);
         CheckCurrentHp();
         CheckCurrentShield();
     }
@@ -106,7 +102,7 @@ public class PlayerController : MonoBehaviour
         
         _animator.SetTrigger("Block");
         
-        InstantiateCanvasBase(_canvasIncreaseShield);
+        InstantiateCanvasBase(_canvasObjects[3]);
         CheckCurrentShield();
     }
     
@@ -116,26 +112,19 @@ public class PlayerController : MonoBehaviour
         
         _animator.SetTrigger("Block");
         
-        InstantiateCanvasBase(_canvasLargeIncreaseShield);
+        InstantiateCanvasBase(_canvasObjects[4]);
         CheckCurrentShield();
     }
 
-    private void InstantiateCanvasBase(GameObject canvasObject)
+    private void InstantiateCanvasBase(CanvasDestroyController canvasDestroyController)
     {
-        var newCanvasIncreaseHp = Instantiate(canvasObject, transform);
-        newCanvasIncreaseHp.SetActive(true);
+        var newCanvasIncreaseHp = Instantiate(canvasDestroyController, transform);
+        newCanvasIncreaseHp.gameObject.SetActive(true);
+        newCanvasIncreaseHp.DestroyCanvasIncreaseHp();
     }
 
     private void CheckCurrentHp()
     {
-        if (Hp <= 0)
-        {
-            Hp = 0;
-            
-            _uIController.HideGameLose();
-            ActivateDeath();
-        }
-        
         _hpText.text = Hp.ToString("0") + "/" + MaxHp.ToString("0");
         _hpImage.fillAmount = Hp/MaxHp;
     }
@@ -148,5 +137,13 @@ public class PlayerController : MonoBehaviour
     private void CheckCurrentShield()
     {
         _shieldText.text = Shield.ToString("0");
+    }
+    
+    private void OffAllCanvasObjects()
+    {
+        foreach (var t in _canvasObjects)
+        {
+            t.gameObject.SetActive(false);
+        }
     }
 }

@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -8,12 +6,12 @@ using Random = UnityEngine.Random;
 
 public class CardPoolController : MonoBehaviour
 {
-    [SerializeField] private DiscardController _discardController;
-    [SerializeField] private SetcardController _setcardController;
-    [SerializeField] private CardController[] _cardControllers;
     [SerializeField] private GameObject[] _positionRotationCards;
-
-    public List<CardController> _listNewCard;
+    [SerializeField] private List<CardController> _listNewCard;
+    
+    private DiscardController _discardController;
+    private SetcardController _setcardController;
+    private CardController[] _cardControllers;
     private Sequence _sequence, _sequence1;
     private Button _endTurnButton;
     
@@ -21,6 +19,9 @@ public class CardPoolController : MonoBehaviour
 
     private void Start()
     {
+        _discardController = GetComponentInChildren<DiscardController>();
+        _setcardController = GetComponentInChildren<SetcardController>();
+        _cardControllers = GetComponentsInChildren<CardController>();
         _endTurnButton = GetComponentInChildren<Button>();
     }
 
@@ -35,7 +36,6 @@ public class CardPoolController : MonoBehaviour
     public void DecreaseCountCurrentCardInPool()
     {
         countCurrentCardInPool--;
-        //CheckForInstantiate();
     }
 
     public void EndMoveAllCard()
@@ -126,19 +126,19 @@ public class CardPoolController : MonoBehaviour
         switch (countCurrentCardInPool)
         {
             case 0:
-                _listNewCard[^1].transform.DORotate(new(0, 0, 25), 0.5f);
+                _listNewCard[^1].transform.DORotate(new Vector3(0, 0, 25), 0.5f);
                 break;
             case 1:
-                _listNewCard[^1].transform.DORotate(new(0, 0, 10), 0.5f);
+                _listNewCard[^1].transform.DORotate(new Vector3(0, 0, 10), 0.5f);
                 break;
             case 2:
-                _listNewCard[^1].transform.DORotate(new(0, 0, 0), 0.5f);
+                _listNewCard[^1].transform.DORotate(new Vector3(0, 0, 0), 0.5f);
                 break;
             case 3:
-                _listNewCard[^1].transform.DORotate(new(0, 0, -10), 0.5f);
+                _listNewCard[^1].transform.DORotate(new Vector3(0, 0, -10), 0.5f);
                 break;
             case 4:
-                _listNewCard[^1].transform.DORotate(new(0, 0, -25), 0.5f);
+                _listNewCard[^1].transform.DORotate(new Vector3(0, 0, -25), 0.5f);
                 break;
         }
     }

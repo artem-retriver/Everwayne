@@ -1,13 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class CardController : MonoBehaviour
 {
-    [SerializeField] private CardPoolController _cardPoolController;
     [SerializeField] private CardManaController _cardManaController;
     [SerializeField] private DiscardController _discardController;
     [SerializeField] private SetcardController _setcardController;
@@ -15,10 +10,13 @@ public class CardController : MonoBehaviour
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private GameObject _outlineCard;
     
+    private CardPoolController _cardPoolController;
+    
     public SpriteRenderer[] _spriteRenderers;
     public Canvas[] _canvasCard;
     
     private BoxCollider _boxCollider;
+    
     private Vector3 _currentPosition;
     private Quaternion _currentRotation;
 
@@ -28,6 +26,7 @@ public class CardController : MonoBehaviour
 
     private void Start()
     {
+        _cardPoolController = GetComponentInParent<CardPoolController>();
         _boxCollider = GetComponent<BoxCollider>();
     }
 

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,24 +7,24 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private UIController _uIController;
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private CardPoolController _cardPoolController;
-    [SerializeField] private GameObject _canvasDecreaseHp;
-    [SerializeField] private GameObject _canvasLargeDecreaseHp;
-    [SerializeField] private GameObject _canvasIncreaseShield;
     [SerializeField] private Image _hpImage;
     [SerializeField] private Text _hpText;
     [SerializeField] private Text _shieldText;
-    
+
+    private CanvasDestroyController[] _canvasObjects;
     private Animator _animator;
 
-    private float currentAttack = 10, saveAttack = 10, currentLargeAttack = 25, saveLargeAttack = 25,
-        Shield = 0;
+    private float attack = 10, saveAttack = 10, 
+        currentLargeAttack = 25, saveLargeAttack = 25, Shield;
 
     public float Hp, MaxHp;
 
     private void Start()
     {
+        _canvasObjects = GetComponentsInChildren<CanvasDestroyController>();
         _animator = GetComponent<Animator>();
-        
+
+        OffAllCanvasObjects();
         CheckCurrentHp();
         CheckCurrentShield();
     }
@@ -61,7 +59,7 @@ public class EnemyController : MonoBehaviour
         if (Shield > 0)
         {
             saveAttack -= Shield;
-            Shield -= currentAttack;
+            Shield -= attack;
 
             if (Shield <= 0 && saveAttack > 0)
             {
@@ -78,7 +76,7 @@ public class EnemyController : MonoBehaviour
         
         _animator.SetTrigger("Hurt");
         
-        InstantiateCanvasBase(_canvasDecreaseHp);
+        InstantiateCanvasBase(_canvasObjects[0]);
         CheckCurrentHp();
         CheckCurrentShield();
     }
@@ -105,7 +103,7 @@ public class EnemyController : MonoBehaviour
         
         _animator.SetTrigger("Hurt");
         
-        InstantiateCanvasBase(_canvasLargeDecreaseHp);
+        InstantiateCanvasBase(_canvasObjects[1]);
         CheckCurrentHp();
         CheckCurrentShield();
     }
@@ -127,7 +125,7 @@ public class EnemyController : MonoBehaviour
         
         _animator.SetTrigger("Hurt");
         
-        InstantiateCanvasBase(_canvasIncreaseShield);
+        InstantiateCanvasBase(_canvasObjects[2]);
         CheckCurrentShield();
     }
 
@@ -150,9 +148,18 @@ public class EnemyController : MonoBehaviour
         _shieldText.text = Shield.ToString("0");
     }
     
-    private void InstantiateCanvasBase(GameObject canvasObject)
+    private void InstantiateCanvasBase(CanvasDestroyController canvasDestroyController)
     {
-        var newCanvasIncreaseHp = Instantiate(canvasObject, transform);
-        newCanvasIncreaseHp.SetActive(true);
+        var newCanvasIncreaseHp = Instantiate(canvasDestroyController, transform);
+        newCanvasIncreaseHp.gameObject.SetActive(true);
+        newCanvasIncreaseHp.DestroyCanvasIncreaseHp();
+    }
+
+    private void OffAllCanvasObjects()
+    {
+        foreach (var t in _canvasObjects)
+        {
+            t.gameObject.SetActive(false);
+        }
     }
 }
